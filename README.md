@@ -18,7 +18,7 @@ The following command will run the container and expose the application on port 
 ```bash
 docker run -p 8000:8000 mobilenetv2fast
 ```
-Run container includer pass the test with coverage report
+Run container include start test with coverage report
 
 ![Coverage report](img/test.png)
 *Coverage report*
@@ -60,10 +60,7 @@ The API will return a JSON response with the top predicted classes and their pro
     ]
 }
 ```
-## Additional Information
-For more detailed information about the FastAPI application and the MobileNetV2 model, please refer to the project documentation.
-
-### cURL Commands
+### cURL Commands Examples
 Ensure you have the images in a directory named `img` in the current working directory. Here are the `cURL` commands to upload these images to the API:
 
 ```bash
