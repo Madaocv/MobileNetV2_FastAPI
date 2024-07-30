@@ -2,7 +2,14 @@
 This project provides a Dockerized FastAPI application that uses a pre-trained MobileNetV2 model for image classification. 
 Follow the instructions below to set up and run the application using Docker.
 ## Setup
-### 1. Build the Docker Image
+
+### 1. Clone the repository:
+
+```bash
+git clone https://github.com/Madaocv/MobileNetV2_FastAPI.git
+cd MobileNetV2_FastAPI
+```
+### 2. Build the Docker Image
 
 First, you need to build the Docker image.
 Run the following command in the root directory of the project where the `Dockerfile` is located:
@@ -10,7 +17,7 @@ Run the following command in the root directory of the project where the `Docker
 ```bash
 docker build -t mobilenetv2fast .
 ```
-### 2. Run the Docker Container
+### 3. Run the Docker Container
 
 Once the image is built, you can run the Docker container. 
 The following command will run the container and expose the application on port 8000:
@@ -22,7 +29,7 @@ Run container include start test with coverage report
 
 ![Coverage report](img/test.png)
 *Coverage report*
-### 3. Access the API
+### 4. Access the API
 
 After running the container, the FastAPI application will be accessible at `http://localhost:8000`.
 
