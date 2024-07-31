@@ -40,8 +40,12 @@ async def predict(file: UploadFile = File(...), top_k: int = 5):
         logits = outputs.logits
         probs = torch.nn.functional.softmax(logits, dim=-1)
         top_probs, top_idxs = torch.topk(probs, top_k, dim=-1)
-        top_probs = top_probs.squeeze().tolist()
-        top_idxs = top_idxs.squeeze().tolist()
+        if top_k == 1:
+            top_probs = [top_probs.item()]
+            top_idxs = [top_idxs.item()]
+        else:
+            top_probs = top_probs.squeeze().tolist()
+            top_idxs = top_idxs.squeeze().tolist()
         predictions = [{"label": model.config.id2label[idx], "probability": prob} for idx, prob in zip(top_idxs, top_probs)]
         logger.info(f"Successful prediction for file: {file.filename}")
         return JSONResponse(content={"predictions": predictions})
